@@ -1,23 +1,15 @@
-FROM --platform=linux/amd64 pytorch/pytorch:latest
-RUN apt-get update \
-&& apt-get install -y \
-libgl1-mesa-glx \
-libx11-xcb1 \
-&& apt-get clean all \
-&& rm -r /var/lib/apt/lists/*
+FROM python:3.11-slim
 
-RUN /opt/conda/bin/conda install --yes \
-astropy \
-matplotlib \
-pandas \
-scikit-learn \
-scikit-image 
-
-RUN pip install torch
+RUN apt-get update && \
+    apt-get install -y libgomp1 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+    
+WORKDIR /scripts
 COPY ./requirements.txt .
+COPY docker.env .env
 RUN pip install -r requirements.txt
 
-COPY ./data2vec .
-COPY ./utils /utils
-COPY ./wav2vec .
-WORKDIR /scripts
+COPY ./embedding embedding
+COPY ./utils utils
+COPY __init__.py .
