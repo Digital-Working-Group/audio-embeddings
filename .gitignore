@@ -1,8 +1,9 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.wav
-*.mp3
-*.flac
-*.mp3
-.DS_Store
+log/data2vec.log
 .env
+.env.*
+__pycache__/
+*.pyc
+.DS_Store
+*.flac
+*.wav
+*.txt
