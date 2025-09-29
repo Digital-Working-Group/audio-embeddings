@@ -1,7 +1,8 @@
 import os
 
+
 class Pipeline:
-    def __init__(self, input_folder_path :str, output_folder_path : str, config):
+    def __init__(self, input_folder_path: str, output_folder_path: str, config):
         self.config = config
         self.input_folder_path = input_folder_path
         self.output_folder_path = output_folder_path

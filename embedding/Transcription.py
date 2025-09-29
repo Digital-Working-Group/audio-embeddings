@@ -4,17 +4,18 @@ import logging
 import os
 import re
 from embedding.Pipeline import Pipeline
+
 logger = logging.getLogger(__name__)
 
 
 class Transcription(Pipeline):
     """Handles the ML pipeline for transcription using Wav2Vec models"""
 
-    def __init__(self, input_folder_path, output_folder_path, config):
+    def __init__(self, input_folder_path, output_folder_path, config, results):
         super().__init__(input_folder_path, output_folder_path, config)
         self.processor = config.processor_class.from_pretrained(config.processor_name)
         self.model = config.model_class.from_pretrained(config.model_name)
-        self.results = []
+        self.results = results
 
     def _transcribe_logits(self, file_name, logits: torch.Tensor):
         """Transcribe logits to text and save to file"""
@@ -23,9 +24,10 @@ class Transcription(Pipeline):
 
         base_name = os.path.splitext(file_name)[0]
         output_file_path = os.path.join(
-            self.output_folder_path, base_name + '_transcription.txt')
+            self.output_folder_path, base_name + "_transcription.txt"
+        )
 
-        with open(output_file_path, 'w') as f:
+        with open(output_file_path, "w") as f:
             f.write(transcription[0])
 
     def create_asr_transcriptions(self):
@@ -33,8 +35,8 @@ class Transcription(Pipeline):
         logger.info("Creating transcriptions from processed logits...")
 
         for result in self.results:
-            file_name = result['filename']
-            logits = result['logits']
+            file_name = result["filename"]
+            logits = result["logits"]
 
             try:
                 self._transcribe_logits(file_name, logits)
@@ -44,8 +46,8 @@ class Transcription(Pipeline):
     def get_transcription(self, file_name):
         """Get transcription for a specific file without saving to disk"""
         for result in self.results:
-            if result['filename'] == file_name:
-                logits = result['logits']
+            if result["filename"] == file_name:
+                logits = result["logits"]
                 predicted_ids = torch.argmax(logits, dim=-1)
                 transcription = self.processor.batch_decode(predicted_ids)
                 return transcription[0]
@@ -57,8 +59,8 @@ class Transcription(Pipeline):
         transcriptions = {}
 
         for result in self.results:
-            file_name = result['filename']
-            logits = result['logits']
+            file_name = result["filename"]
+            logits = result["logits"]
             predicted_ids = torch.argmax(logits, dim=-1)
             transcription = self.processor.batch_decode(predicted_ids)
             transcriptions[file_name] = transcription[0]
@@ -72,7 +74,7 @@ class Transcription(Pipeline):
         # Find chunk files: filename_chunk_001_transcription.txt
         chunk_files = {}
         for file in folder.glob("*_chunk_*_transcription.txt"):
-            match = re.match(r'(.+)_chunk_(\d+)_transcription\.txt', file.name)
+            match = re.match(r"(.+)_chunk_(\d+)_transcription\.txt", file.name)
             if match:
                 original_name, chunk_num = match.groups()
                 if original_name not in chunk_files:
@@ -86,15 +88,15 @@ class Transcription(Pipeline):
             # Read and merge content
             merged_text = []
             for _, chunk_file in chunks:
-                with open(chunk_file, 'r') as f:
+                with open(chunk_file, "r") as f:
                     content = f.read().strip()
                     if content:
                         merged_text.append(content)
 
             # Write merged file
             merged_file = folder / f"{original_name}_transcription.txt"
-            with open(merged_file, 'w') as f:
-                f.write('\n'.join(merged_text))
+            with open(merged_file, "w") as f:
+                f.write("\n".join(merged_text))
 
             # Clean up chunks
             for _, chunk_file in chunks:
