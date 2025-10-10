@@ -64,8 +64,6 @@ class AudioEmbedding(Pipeline):
         # Resample if needed
         if sample_rate != 16000:
             audio_data = resample.resample(audio_data, sample_rate)
-        # if (self.denoiser):
-        #     audio_data = self.denoiser.denoise_deepfilternet(audio_data,sample_rate)
 
         # Preprocess and convert audio to input tensor
         input_values = self.processor(

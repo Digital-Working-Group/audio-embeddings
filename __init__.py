@@ -9,8 +9,6 @@ from dotenv import load_dotenv
 def main():
     parser = argparse.ArgumentParser(description="Audio Embedding Pipeline")
     parser.add_argument('-t', '--transcribe', action='store_true', help='Run ASR transcription')
-    # parser.add_argument('-d', '--denoise', action='store_true', help='Run denoising step')
-    # Removing denoising for now since it didn't work
     parser.add_argument('-s', '--save-weights', action='store_true', help='Save final layer of model')
     parser.add_argument('-l', '--large', action='store_true', help='Use large Data2Vec model')
     parser.add_argument('--input-folder', required=True, help='Path to input folder (required)')
