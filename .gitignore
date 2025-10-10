@@ -4,8 +4,4 @@ log/data2vec.log
 __pycache__/
 *.pyc
 .DS_Store
-*.flac
-*.wav
-*.txt
-*.pt
 .vscode/
