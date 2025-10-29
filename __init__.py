@@ -29,7 +29,7 @@ def main():
         model_name="facebook/wav2vec2-base-960h"
     )
 
-    transformer_config_data2vec_large = types.TransformerConfig(
+    transformer_config_wav2vec_large = types.TransformerConfig(
         processor_class=Wav2Vec2Processor,
         processor_name="facebook/wav2vec2-large-960h-lv60-self",
         model_class=Wav2Vec2ForCTC,
@@ -38,7 +38,7 @@ def main():
 
         
     if args.large:
-        selected_config = transformer_config_data2vec_large
+        selected_config = transformer_config_wav2vec_large
     else:
         selected_config = transformer_config_wav2vec_base
 

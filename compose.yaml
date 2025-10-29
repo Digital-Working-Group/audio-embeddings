@@ -7,8 +7,10 @@ services:
     volumes:
       - ./data2wav_in:/input
       - ./data2wav_out:/output
+      - ./log:/scripts/log
+      - ./.cache/huggingface:/root/.cache/huggingface
     pull_policy: never
-    command: python __init__.py --input-folder /input --output-folder /output --transcribe --save-weights  
+    command: python __init__.py  --input-folder /input --output-folder /output --transcribe --save-weights  
 
 
 

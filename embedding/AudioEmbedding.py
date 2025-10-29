@@ -1,4 +1,6 @@
 from transformers import Wav2Vec2Processor, Data2VecAudioForCTC
+from transformers.utils import logging as hf_logging
+hf_logging.enable_progress_bar()
 import os
 import torch
 import soundfile
@@ -14,9 +16,15 @@ from embedding.Transcription import Transcription
 from embedding.Pipeline import Pipeline
 
 
+
 log_folder = Path("log")
 log_folder.mkdir(exist_ok=True)
 log_file = log_folder / "data2vec.log"
+
+# Clear the log file before configuring logging
+with open(log_file, "w"):
+    pass
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
@@ -30,7 +38,7 @@ class AudioEmbedding(Pipeline):
         self, input_folder_path, output_folder_path, config: types.TransformerConfig
     ):
         super().__init__(input_folder_path, output_folder_path, config)
-
+        logger.info("Loading model weights")
         self.processor = config.processor_class.from_pretrained(config.processor_name)
         self.model = config.model_class.from_pretrained(config.model_name)
         logger.info("Models loaded successfully")
@@ -94,7 +102,7 @@ class AudioEmbedding(Pipeline):
         chunk_duration = min(max_chunk_sec, max(min_chunk_sec, total_duration))
         chunk_samples = int(chunk_duration * info.samplerate)
         total_chunks = math.ceil(info.frames / chunk_samples)
-        logger.info(
+        logger.debug(
             f"Processing {os.path.basename(file_path)} in {total_chunks} chunks of {chunk_duration:.1f}s each"
         )
 
@@ -127,7 +135,7 @@ class AudioEmbedding(Pipeline):
                     }
                 )
 
-                logger.info(
+                logger.debug(
                     f"Chunk {chunk_num}/{total_chunks}: {len(chunk)/16000:.1f}s processed"
                 )
                 chunk_pbar.update(1)
@@ -187,7 +195,7 @@ class AudioEmbedding(Pipeline):
             log_msg = f"File {i+1}/{len(self.audio_files)} -> {file_name}: CPU: {mem_before:.1f} -> {mem_after:.1f} MB (+{mem_after-mem_before:.1f})"
             if torch.cuda.is_available():
                 log_msg += f", GPU: {gpu_mem_before:.1f} -> {gpu_mem_after:.1f} MB (+{gpu_mem_after-gpu_mem_before:.1f})"
-            logger.info(log_msg)
+            logger.debug(log_msg)
 
         return results
 

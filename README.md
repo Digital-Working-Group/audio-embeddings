@@ -2,11 +2,13 @@
 This repository contains example workflows, READMEs, sample data, and [Docker](https://www.docker.com/) files that facilitate the usage of various open-source voice feature extraction packages, tools, datasets, and models for generating audio embeddings.
 
 It is a part of a larger [toolkit](https://github.com/FHS-BAP/Voice-Feature-Extraction-Toolkit/) that was developed to support scientific research surrounding investigations of relationships between brain aging and voice features, although the extraction of voice features does have wider applicability. We invite others to please offer their questions, ideas, feedback, and improvements on this repository.
+## Available embedding models
+| Name         | Description |
+|--------------|-------------|
+| **wav2vec2-base-960h** | The base model pretrained and fine-tuned on 960 hours of Librispeech on 16kHz sampled speech audio [wav2vec2](https://huggingface.co/facebook/wav2vec2-base-960h). |
+| **wav2vec2-large-960h-lv60-self** | The large model pretrained and fine-tuned on 960 hours of Libri-Light and Librispeech on 16kHz sampled speech audio. Model was trained with Self-Training objective. [wav2vec2](https://huggingface.co/facebook/wav2vec2-large-960h-lv60-self)|
 
-## Overview
-| Name | Description |
-| - |-|
-| **data2vec** | Create audio embeddings via self-supervised learning via [data2vec](https://huggingface.co/docs/transformers/en/model_doc/data2vec) and/or [wav2vec2](https://huggingface.co/docs/transformers/en/model_doc/wav2vec2).
+These models are available publicly on HuggingFace and will be downloaded automatically.
 
 ## System requirements
 Data2Vec in this configuration is loaded into system RAM. Running the model itself takes approximately 1GB of memory.
@@ -55,7 +57,7 @@ This is tested on Python 3.11 running on debian systems and MacOS. Docker config
 
 ### Docker Setup
 
-1. **Configure volumes in `docker-compose.yml`**
+1. **Configure volumes in `compose.yml`**
    
    ```yaml
    volumes:
@@ -67,8 +69,10 @@ This is tested on Python 3.11 running on debian systems and MacOS. Docker config
    
    ```sh
    docker compose build
-   docker compose up -d
+   docker compose up (or -d if you want to run in the background)
    ```
+
+   If you want to edit the command with arguments etc. change the command line in the compose file. The first time you run the compose if you don't have a .cache directory you will have to download the model weights from HuggingFace which can take time depending on your internet speeds.
 
 ## Output Structure
 
