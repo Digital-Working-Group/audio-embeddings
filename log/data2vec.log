@@ -1695,3 +1695,80 @@
 2025-09-29 15:52:37,384 INFO Processing 8 audio files...
 2025-09-29 15:52:37,396 INFO Streaming large file: data2wav_in/noise_1hour_16k.flac
 2025-09-29 15:52:37,396 INFO Processing noise_1hour_16k.flac in 3 chunks of 60.0s each
+2025-10-03 11:37:06,648 INFO Models loaded successfully
+2025-10-03 11:37:23,005 INFO Models loaded successfully
+2025-10-03 11:37:32,236 INFO Models loaded successfully
+2025-10-03 11:37:32,237 INFO Processing 1 audio files...
+2025-10-03 11:37:32,250 INFO Streaming large file: long_audio/Mock Test 4_SampleDVRandbattery_DVR_deidentified.wav
+2025-10-03 11:37:32,250 INFO Processing Mock Test 4_SampleDVRandbattery_DVR_deidentified.wav in 65 chunks of 60.0s each
+2025-10-03 11:37:34,818 INFO Chunk 1/65: 165.4s processed
+2025-10-03 11:37:36,512 INFO Chunk 2/65: 165.4s processed
+2025-10-03 11:37:38,261 INFO Chunk 3/65: 165.4s processed
+2025-10-03 11:37:39,908 INFO Chunk 4/65: 165.4s processed
+2025-10-03 11:37:41,552 INFO Chunk 5/65: 165.4s processed
+2025-10-03 11:37:43,262 INFO Chunk 6/65: 165.4s processed
+2025-10-03 11:37:45,177 INFO Chunk 7/65: 165.4s processed
+2025-10-03 11:37:48,623 INFO Chunk 8/65: 165.4s processed
+2025-10-03 11:37:51,973 INFO Chunk 9/65: 165.4s processed
+2025-10-03 11:37:55,561 INFO Chunk 10/65: 165.4s processed
+2025-10-03 11:37:58,735 INFO Chunk 11/65: 165.4s processed
+2025-10-03 11:38:00,412 INFO Chunk 12/65: 165.4s processed
+2025-10-03 11:38:02,205 INFO Chunk 13/65: 165.4s processed
+2025-10-03 11:38:04,196 INFO Chunk 14/65: 165.4s processed
+2025-10-03 11:38:06,965 INFO Chunk 15/65: 165.4s processed
+2025-10-03 11:38:08,938 INFO Chunk 16/65: 165.4s processed
+2025-10-03 11:38:10,747 INFO Chunk 17/65: 165.4s processed
+2025-10-03 11:38:12,608 INFO Chunk 18/65: 165.4s processed
+2025-10-03 11:38:14,502 INFO Chunk 19/65: 165.4s processed
+2025-10-03 11:38:16,658 INFO Chunk 20/65: 165.4s processed
+2025-10-03 11:38:18,618 INFO Chunk 21/65: 165.4s processed
+2025-10-03 11:38:20,394 INFO Chunk 22/65: 165.4s processed
+2025-10-03 11:38:22,181 INFO Chunk 23/65: 165.4s processed
+2025-10-03 11:38:24,323 INFO Chunk 24/65: 165.4s processed
+2025-10-03 11:38:26,194 INFO Chunk 25/65: 165.4s processed
+2025-10-03 11:38:28,127 INFO Chunk 26/65: 165.4s processed
+2025-10-03 11:38:29,799 INFO Chunk 27/65: 165.4s processed
+2025-10-03 11:38:31,481 INFO Chunk 28/65: 165.4s processed
+2025-10-03 11:38:33,169 INFO Chunk 29/65: 165.4s processed
+2025-10-03 11:38:34,816 INFO Chunk 30/65: 165.4s processed
+2025-10-03 11:38:36,570 INFO Chunk 31/65: 165.4s processed
+2025-10-03 11:38:38,316 INFO Chunk 32/65: 165.4s processed
+2025-10-03 11:38:40,113 INFO Chunk 33/65: 165.4s processed
+2025-10-03 11:38:41,973 INFO Chunk 34/65: 165.4s processed
+2025-10-03 11:38:43,666 INFO Chunk 35/65: 165.4s processed
+2025-10-03 11:38:45,346 INFO Chunk 36/65: 165.4s processed
+2025-10-03 11:38:47,071 INFO Chunk 37/65: 165.4s processed
+2025-10-03 11:38:48,772 INFO Chunk 38/65: 165.4s processed
+2025-10-03 11:38:50,468 INFO Chunk 39/65: 165.4s processed
+2025-10-03 11:38:52,122 INFO Chunk 40/65: 165.4s processed
+2025-10-03 11:38:53,928 INFO Chunk 41/65: 165.4s processed
+2025-10-03 11:38:55,705 INFO Chunk 42/65: 165.4s processed
+2025-10-03 11:38:57,379 INFO Chunk 43/65: 165.4s processed
+2025-10-03 11:38:59,180 INFO Chunk 44/65: 165.4s processed
+2025-10-03 11:39:00,874 INFO Chunk 45/65: 165.4s processed
+2025-10-03 11:39:02,594 INFO Chunk 46/65: 165.4s processed
+2025-10-03 11:39:04,218 INFO Chunk 47/65: 165.4s processed
+2025-10-03 11:39:05,894 INFO Chunk 48/65: 165.4s processed
+2025-10-03 11:39:07,567 INFO Chunk 49/65: 165.4s processed
+2025-10-03 11:39:09,215 INFO Chunk 50/65: 165.4s processed
+2025-10-03 11:39:11,013 INFO Chunk 51/65: 165.4s processed
+2025-10-03 11:39:12,639 INFO Chunk 52/65: 165.4s processed
+2025-10-03 11:39:14,281 INFO Chunk 53/65: 165.4s processed
+2025-10-03 11:39:15,977 INFO Chunk 54/65: 165.4s processed
+2025-10-03 11:39:17,597 INFO Chunk 55/65: 165.4s processed
+2025-10-03 11:39:19,293 INFO Chunk 56/65: 165.4s processed
+2025-10-03 11:39:20,950 INFO Chunk 57/65: 165.4s processed
+2025-10-03 11:39:22,570 INFO Chunk 58/65: 165.4s processed
+2025-10-03 11:39:24,209 INFO Chunk 59/65: 165.4s processed
+2025-10-03 11:39:25,839 INFO Chunk 60/65: 165.4s processed
+2025-10-03 11:39:27,488 INFO Chunk 61/65: 165.4s processed
+2025-10-03 11:39:29,284 INFO Chunk 62/65: 165.4s processed
+2025-10-03 11:39:30,967 INFO Chunk 63/65: 165.4s processed
+2025-10-03 11:39:32,655 INFO Chunk 64/65: 165.4s processed
+2025-10-03 11:39:33,208 INFO Chunk 65/65: 64.7s processed
+2025-10-03 11:39:33,276 INFO File 1/1 -> Mock Test 4_SampleDVRandbattery_DVR_deidentified.wav: CPU: 341.4 -> 1241.6 MB (+900.2)
+2025-10-03 11:39:33,276 INFO Processed 65 files successfully
+2025-10-03 11:39:33,766 INFO Saving 65 logits to data2wav_out/logits
+2025-10-03 11:39:33,834 INFO Finished saving logits to data2wav_out/logits
+2025-10-03 11:39:33,834 INFO Creating transcriptions from processed logits...
+2025-10-03 11:39:33,942 INFO Merged 65 chunks for Mock Test 4_SampleDVRandbattery_DVR_deidentified
