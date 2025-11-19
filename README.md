@@ -10,12 +10,14 @@ It is a part of a larger [toolkit](https://github.com/FHS-BAP/Voice-Feature-Extr
 
 These models are available publicly on HuggingFace and will be downloaded automatically.
 
-## System requirements
+## System requirements and licenses
 Data2Vec in this configuration is loaded into system RAM. Running the model itself takes approximately 1GB of memory.
 
 The pipeline effectively chunks long audio recordings depending on their length but 1GB plus 500MB of additional overhead memory is required.
 
 This is tested on Python 3.11 running on debian systems and MacOS. Docker configurations are provided as well.
+
+The licenses for the requirements can be found in `pip-licenses.md`.
 
 ## Usage
 ### Local Setup
